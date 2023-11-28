@@ -1,0 +1,44 @@
+[
+    /* 
+    Fields to remove inside the XML
+    */
+    {
+        "identifier": "removeFields",
+        "friendlyName": "Field Remover",
+
+        "enabled": true,
+        "items": ["Rule.Specification.Version"]
+    },
+
+    /*
+    Fields to be added based on location and where
+
+    base: Where key/value should be added
+    where: Where key/value should inserted (below/above)
+    location: Where key/value should be placed
+    field: What is the <KEY>value</KEY>
+    value What is the <key>VALUE</key>
+    */
+    {
+        "identifier": "addFeilds",
+        "friendlyName": "Field Adder",
+
+        "enabled": true,
+        "items": [
+            {
+                "base": "Rule.Specification",
+                "where": "below",
+                "location": "Id",
+                "field": "ValidFrom",
+                "value": "22056"
+            },
+            {
+                "base": "Rule.Specification",
+                "where": "below",
+                "location": "ValidFrom",
+                "field": "ValidTo",
+                "value": ""
+            }
+        ]
+    }
+]

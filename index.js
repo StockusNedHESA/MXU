@@ -93,7 +93,8 @@ const procedures = {
 
     terminal("―".repeat(45) + '\n')
 
-    const files = await readdir(INPUT_DIR)
+    let files = await readdir(INPUT_DIR)
+    files = files.filter(file => file.endsWith('.xml'))
 
     terminal(`Located `).bold(files.length).defaultColor(` files inside ${INPUT_DIR} directory\n`)
     terminal("Delete output ").bold(DELETE_OUTPUT ? 'enabled' : 'disabled').defaultColor(' before start\n\n')
@@ -101,6 +102,10 @@ const procedures = {
     if (DELETE_OUTPUT) {
         await rm(OUTPUT_DIR, { recursive: true, force: true })
         await mkdir(OUTPUT_DIR)
+        await writeFile(
+            `${__dirname}/${OUTPUT_DIR}/.gitignore`,
+            `*\n!.gitignore`
+        )
     }
 
     const progressBar = terminal.progressBar({ title: "test", titleSize: 40, width: 100, percent: true, eta: true, syncMode: true })
@@ -126,7 +131,7 @@ const procedures = {
     progressBar.stop()
 
     terminal.eraseLine()
-    terminal.eraseArea(terminal.width,terminal.height-2)
+    terminal.eraseArea(terminal.width, terminal.height - 2)
     terminal("―".repeat(45) + '\n')
     terminal.green("Processed complete\n")
     terminal(`Finished processing ${files.length} XMLs`)

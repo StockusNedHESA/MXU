@@ -6,6 +6,7 @@
         "identifier": "removeFields",
         "friendlyName": "Field Remover",
 
+        // true - false
         "enabled": true,
         "items": ["Rule.Specification.Version"]
     },
@@ -18,6 +19,15 @@
     location: Where key/value should be placed
     field: What is the <KEY>value</KEY>
     value What is the <key>VALUE</key>
+
+    Template:
+    {
+        "base": "Rule.Specification",
+        "where": "below",
+        "location": "Id",
+        "field": "ValidFrom",
+        "value": "22056"
+    }
     */
     {
         "identifier": "addFeilds",

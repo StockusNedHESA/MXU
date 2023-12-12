@@ -25,19 +25,18 @@ Ensure that **Node.js LTS** is installed via **Company Portal**!
 2. Install the dependencies by entering `npm install` inside the **Terminal** (Only once)
 3. Create a **start** file by **copying everything** and pasting the code below into **Terminal**
 
-```bash
-$FileContent =@"
-@echo off
-call npm run MXU
-echo.
-pause
-"@
-
-Out-File 'start.bat' -Append -Encoding Ascii
-Add-content -Path "./start.bat" -Value $FileContent
-```
-
-   Close the **Terminal Window**
+  ```bash
+  $FileContent =@"
+  @echo off
+  call npm run MXU
+  echo.
+  pause
+  "@
+  
+  Out-File 'start.bat' -Append -Encoding Ascii
+  Add-content -Path "./start.bat" -Value $FileContent
+  ```
+  Close the **Terminal Window**
 
 4. Modify the `config.jsonc` with your requirements
 5. Run `start.bat`
